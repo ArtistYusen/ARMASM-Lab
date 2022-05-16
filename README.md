@@ -1,1 +1,3 @@
-NIS2331课程lab
+# ARMASM Lab
+
+SJTU-NIS2331 Computer Composition and System Architecture course lab: ARM assembly implementation of matrix multiplication.
