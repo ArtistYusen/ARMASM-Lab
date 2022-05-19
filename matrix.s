@@ -7,10 +7,10 @@ matrix_mul
   ; Please write your code below that will implement:
   ;       int matrix_mul(Matrix *results, const Matrix *source1, const Matrix *source2);
 
-	LDR	r3, [r1, #4]	; source1->columns
-	LDR	r4, [r2]	; source2->rows
+	LDR r3, [r1, #4]	; source1->columns
+	LDR r4, [r2]	; source2->rows
 	CMP r3, r4
-	BEQ	success
+	BEQ success
 	MOV r0, #1 ; fail
 	B return
 
