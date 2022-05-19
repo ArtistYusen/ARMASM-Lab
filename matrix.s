@@ -1,5 +1,4 @@
 ; Author: Yusen Zheng
-; Date:   2022-05-14
 	
 	AREA	program, CODE, READONLY
 matrix_mul
@@ -16,11 +15,11 @@ matrix_mul
 	B return
 
 success
-	LDR	r3, [r1]	; source1->rows
-	LDR	r4, [r2, #4]	; source2->columns
-	LDR	r5, [r2]	; source1->columns == source2->rows
-	STR	r3, [r0]	; results->rows
-	STR	r4, [r0, #4]	; results->columns
+	LDR r3, [r1]	; source1->rows
+	LDR r4, [r2, #4]	; source2->columns
+	LDR r5, [r2]	; source1->columns == source2->rows
+	STR r3, [r0]	; results->rows
+	STR r4, [r0, #4]	; results->columns
 	LDR r0, [r0, #8]	; 0->data
 	LDR r1, [r1, #8]	; 1->data
 	LDR r2, [r2, #8]	; 2->data
