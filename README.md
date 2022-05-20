@@ -4,7 +4,8 @@ SJTU-NIS2331 Computer Composition and System Architecture course lab: ARM assemb
 
 ## Lab-1
 
-Solution file: [`matrix.s`](./lab-1/matrix.s).
+- Assignment: [`lab1`](lab-1/ARMASM-lab1.pdf).
+- Solution file: [`matrix.s`](./lab-1/matrix.s).
 
 ### Usage
 
