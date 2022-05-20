@@ -17,7 +17,7 @@ If an error occurs at runtime, you should install the relevant dependency packag
 ```zsh
 [+] Test 1 succeed.
 [+] Test 2 succeed.
-[+] Test 2 succeed.
+[+] Test 3 succeed.
 [*] Final score is 30.
 ```
 

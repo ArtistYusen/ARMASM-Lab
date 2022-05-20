@@ -101,7 +101,7 @@ def test_all():
 
     if test_case_3():
         score += 10
-        print("\033[32m\033[1m[+] Test 2 succeed.\033[0m")
+        print("\033[32m\033[1m[+] Test 3 succeed.\033[0m")
     else:
         print(f"\033[31m\033[1m[x] Wrong answer of matrix!\033[0m")
     
