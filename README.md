@@ -2,17 +2,20 @@
 
 SJTU-NIS2331 Computer Composition and System Architecture course lab: ARM assembly implementation of matrix multiplication.
 
-Solution file: [`matrix.s`](./matrix.s).
+## Lab-1
 
-**Usage:**
+Solution file: [`matrix.s`](./lab-1/matrix.s).
+
+### Usage
 
 ```zsh
+$> cd ./lab-1
 $> ./generate.sh
 ```
 
-If an error occurs at runtime, you should install the relevant dependency packages, the required ones can be found in the [`Dockerfile`](./Dockerfile).
+If an error occurs at runtime, you should install the relevant dependency packages, the required ones can be found in the [`Dockerfile`](./lab-1/Dockerfile).
 
-**Output:**
+### Output
 
 ```zsh
 [+] Test 1 succeed.
@@ -21,4 +24,6 @@ If an error occurs at runtime, you should install the relevant dependency packag
 [*] Final score is 30.
 ```
 
-I hate Keil uVision5, it's **stupid and ugly**.
+## Lab-2
+
+Update...
