@@ -16,6 +16,6 @@ matrix_mul_asm:
 //	STR X1, [R0, #4]
 
 	// return 0;
-	MOV		R0, #0
+	MOV		X0, #0
 	
 	RET
