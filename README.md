@@ -13,6 +13,7 @@ All my programs are running in Ubuntu 20.04LTS on WSL2. And I use zsh for my com
 
 ```zsh
 $> cd ./lab-1
+$> chmod +x ./generate.sh
 $> ./generate.sh
 ```
 
@@ -28,6 +29,12 @@ $> ./generate.sh
 ## Lab-2
 
 - Assignment: [`lab2`](lab-2/ARMASM-lab2.pdf).
-- Solution file: [`matrix_mul_asm.s`](./lab-2/matrix_mul_asm.s).
+- Solution file: [`updating`](./lab-2/matrix_mul_asm.s).
 
-Updating...
+### Usage
+
+```zsh
+$> cd ./lab-2
+$> chmod +x ./generate.sh
+$> ./generate.sh
+```
