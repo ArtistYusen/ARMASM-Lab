@@ -32,29 +32,29 @@ matrix_mul_asm:
 loop1:
 	CMP X6, X3
 	BEQ finish
-	LDR LR, [SP], #8
-	BL loop2
-	STR LR, [SP, #-8]!
+	B loop2
+
+ctd1:
 	ADD X6, X6, #4
 	MOV X7, #0
 	B loop1
  
 loop2:
 	CMP X7, X4
-	BR LR
-	LDR LR, [SP], #8
-	BL loop3
-	STR LR, [SP, #-8]!
+	BEQ ctd1
+	B loop3
+	
+ctd2:
 	ADD X7, X7, #4
 	MOV X8, #0
 	B loop2
  
 loop3:
 	CMP X8, X5
-	BR LR
-	LDR LR, [SP], #8
+	BEQ ctd2
 	B block_mul
-	STR LR, [SP, #-8]!
+	
+ctd3:
 	ADD X8, X8, #4
 	B loop3
  
@@ -130,7 +130,7 @@ block_mul:
 	ADD X11, X11, X4
 	ST1 {V11.4s}, [X11]
 
-	BR LR
+	B ctd3
 
 finish:
 	MOV X0, #0
