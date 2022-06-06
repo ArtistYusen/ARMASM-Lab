@@ -30,10 +30,11 @@ matrix_mul_asm:
 	B loop1
  
 loop1:
+	B finish
 	CMP X6, X3
 	BEQ finish
 	B loop2
-
+ 
 ctd1:
 	ADD X6, X6, #4
 	MOV X7, #0
@@ -62,76 +63,70 @@ block_mul:
 	MUL X9, X6, X5
 	ADD X9, X9, X8
 	LSL X9, X9, #2
-	ADD X9, X9, x1 // X9 store address of source1.data[i][k]
-
+	ADD X9, X9, X1 // X9 store address of source1.data[i][k]
+ 
 	MUL X10, X8, X4
 	ADD X10, X10, X7
 	LSL X10, X10, #2
 	ADD X10, X10, X2 // X10 store address of source2.data[k][j]
-
+ 
 	MUL X11, X6, X4
 	ADD X11, X11, X7
 	LSL X11, X11, #2
 	ADD X11, X11, X0 // X11 store address of results.data[i][j]
-
+ 
 	// Load datas
+	LSL X12, X5, #2
 	LD1 {V0.4s}, [X9]
-	ADD X9, X9, X5
+	ADD X9, X9, X12
 	LD1 {V1.4s}, [X9]
-	ADD X9, X9, X5
+	ADD X9, X9, X12
 	LD1 {V2.4s}, [X9]
-	ADD X9, X9, X5
+	ADD X9, X9, X12
 	LD1 {V3.4s}, [X9]
-
+ 
+	LSL X12, X4, #2
 	LD1 {V4.4s}, [X10]
-	ADD X10, X10, X4
+	ADD X10, X10, X12
 	LD1 {V5.4s}, [X10]
-	ADD X10, X10, X4
+	ADD X10, X10, X12
 	LD1 {V6.4s}, [X10]
-	ADD X10, X10, X4
+	ADD X10, X10, X12
 	LD1 {V7.4s}, [X10]
-	
-	// CLean datas in V8~11.4s // TODO: check if it is necessary
-	LD1 {V8.4s}, [X11]
-	ADD X11, X11, X4
-	LD1 {V9.4s}, [X11]
-	ADD X11, X11, X4
-	LD1 {V10.4s}, [X11]
-	ADD X11, X11, X4
-	LD1 {V11.4s}, [X11]
 	
 	// Block multiply
 	FMUL V8.4s, V4.4s, V0.4s[0]
 	FMLA V8.4s, V5.4s, V0.4s[1]
 	FMLA V8.4s, V6.4s, V0.4s[2]
 	FMLA V8.4s, V7.4s, V0.4s[3]
-
+ 
 	FMUL V9.4s, V4.4s, V1.4s[0]
 	FMLA V9.4s, V5.4s, V1.4s[1]
 	FMLA V9.4s, V6.4s, V1.4s[2]
 	FMLA V9.4s, V7.4s, V1.4s[3]
-
+ 
 	FMUL V10.4s, V4.4s, V2.4s[0]
 	FMLA V10.4s, V5.4s, V2.4s[1]
 	FMLA V10.4s, V6.4s, V2.4s[2]
 	FMLA V10.4s, V7.4s, V2.4s[3]
-
+ 
 	FMUL V11.4s, V4.4s, V3.4s[0]
 	FMLA V11.4s, V5.4s, V3.4s[1]
 	FMLA V11.4s, V6.4s, V3.4s[2]
 	FMLA V11.4s, V7.4s, V3.4s[3]
-
+ 
 	// Store datas
+	LSL X12, X4, #2
 	ST1 {V8.4s}, [X11]
-	ADD X11, X11, X4
+	ADD X11, X11, X12
 	ST1 {V9.4s}, [X11]
-	ADD X11, X11, X4
+	ADD X11, X11, X12
 	ST1 {V10.4s}, [X11]
-	ADD X11, X11, X4
+	ADD X11, X11, X12
 	ST1 {V11.4s}, [X11]
-
+ 
 	B ctd3
-
+ 
 finish:
 	MOV X0, #0
 	RET
