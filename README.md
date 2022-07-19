@@ -2,7 +2,7 @@
 
 SJTU-NIS2331 Computer Composition and System Architecture course lab: ARM assembly implementation of matrix multiplication.
 
-All my programs are running in Ubuntu 20.04LTS on WSL2. And I use zsh for my command line. If an error occurs at runtime, you should check the runtime environment or install the relevant dependency packages, etc. The required ones can be found in the [`./lab-1/generate.sh`](./lab-1/generate.sh) and [`./lab-2/generate.sh`](./lab-2/generate.sh).
+All my programs are running in Ubuntu 22.04LTS. And I use zsh for my command line. If an error occurs at runtime, you should check the runtime environment or install the relevant dependency packages, etc. The required ones can be found in the [`./lab-1/generate.sh`](./lab-1/generate.sh) and [`./lab-2/generate.sh`](./lab-2/generate.sh).
 
 ## Lab-1
 
@@ -29,7 +29,7 @@ $> ./generate.sh
 ## Lab-2
 
 - Assignment: [`lab2`](lab-2/ARMASM-lab2.pdf).
-- Solution file: [`updating`](./lab-2/matrix_mul_asm.s).
+- Solution file: [`matrix_mul_asm`](./lab-2/matrix_mul_asm.s).
 
 ### Usage
 
