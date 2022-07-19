@@ -6,7 +6,7 @@ SJTU-NIS2331 Computer Composition and System Architecture course lab: ARM assemb
 
 All my programs are running in Ubuntu 22.04LTS. And I use zsh for my command line. If an error occurs at runtime, you should check the runtime environment or install the relevant dependency packages, etc. The required ones can be found in the [`./lab-1/generate.sh`](./lab-1/generate.sh) and [`./lab-2/generate.sh`](./lab-2/generate.sh).
 
-![](https://i.bmp.ovh/imgs/2022/07/19/aae8f22f3640c156.png)
+![](./img/uname.png)
 
 ## Lab-1
 
@@ -17,6 +17,7 @@ All my programs are running in Ubuntu 22.04LTS. And I use zsh for my command lin
 
 ```zsh
 $> cd ./lab-1
+$> chmod +x ./arm2gas.pl
 $> chmod +x ./generate.sh
 $> ./generate.sh
 ```
@@ -29,6 +30,8 @@ $> ./generate.sh
 [+] Test 3 succeed.
 [*] Final score is 30.
 ```
+
+![](./img/lab1.png)
 
 ## Lab-2
 

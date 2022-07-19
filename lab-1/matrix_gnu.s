@@ -10,7 +10,7 @@ matrix_mul:
 	LDR r3, [r1, #4]	// source1->columns
 	LDR r4, [r2]	// source2->rows
 	PUSH {r3-r4}
-	CMP r3, r4
+	CMP r3, r4	// compare source1->columns and source2->rows
 	BEQ success
 	MOV r0, #1 // fail
 	B finish
@@ -82,7 +82,7 @@ loop3:
 
 finish:
 	POP {r3-r4}
-	CMP r3, r4
+	CMP r3, r4	// compare source1->rows and source2->columns
 	MOVEQ r0, #0 // success
 	BX LR
 	.end
