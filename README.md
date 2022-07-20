@@ -52,3 +52,10 @@ $> ./generate.sh
 # just an example
 
 ```
+
+## References
+
+- [ARM Assembly Basics](https://azeria-labs.com/writing-arm-assembly-part-1/)
+- [RUNNING ARM BINARIES ON X86 WITH QEMU-USER](https://azeria-labs.com/arm-on-x86-qemu-user/)
+- [DEBUGGING WITH GDB](https://azeria-labs.com/debugging-with-gdb-introduction/)
+- [How to set up an ARM64 playground on Ubuntu 18.04](https://offlinemark.com/2020/06/24/how-to-set-up-an-arm64-playground-on-ubuntu-18-04/)

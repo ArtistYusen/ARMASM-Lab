@@ -6,17 +6,16 @@
 matrix_mul_asm:
     // Please write your code below that will implement:
     //       int matrix_mul_asm(Matrix* results, Matrix* source1, Matrix* source2);
+	MOV X3, #0
+	MOV X4, #0
+	MOV X5, #0
 
-		// My Notes:
-		// Data in the matrix is ranging from 0 to 255. 8 bits.
-		// 512 * 256 & 256 *512
-
-	LDR X3, [X1]	// source1.rows
-	LDR X4, [X2, #4]	// source2.columns
-	LDR X5, [X2]	// source1.columns == source2.rows
+	LDR W3, [X1]	// source1.rows
+	LDR W4, [X2, #4]	// source2.columns
+	LDR W5, [X2]	// source1.columns == source2.rows
 	
-	STR X3, [X0]	// results.rows	== source1.rows
-	STR X4, [X0, #4]	// results.columns == source2.columns
+	STR W3, [X0]	// results.rows	== source1.rows
+	STR W4, [X0, #4]	// results.columns == source2.columns
 	
 	LDR X0, [X0, #8]	// X0 store address of results.data
 	LDR X1, [x1, #8]	// X1 store address of source1.data
@@ -57,20 +56,18 @@ ctd3:
 	B loop3
  
 block_mul:
-	MUL X9, X6, X5
-	ADD X9, X9, X8
+	MADD X9, X6, X5, X8 // X9 = X6 * X5 + X8
 	LSL X9, X9, #2
 	ADD X9, X9, X1 // X9 store address of source1.data[i][k]
  
-	MUL X10, X8, X4
-	ADD X10, X10, X7
+	MADD X10, X8, X4, X7 // X10 = X8 * X4 + X7
 	LSL X10, X10, #2
 	ADD X10, X10, X2 // X10 store address of source2.data[k][j]
  
-	MUL X11, X6, X4
-	ADD X11, X11, X7
+	MADD X11, X6, X4, X7 // X11 = X6 * X4 + X7
 	LSL X11, X11, #2
 	ADD X11, X11, X0 // X11 store address of results.data[i][j]
+
 	MOV X13, X11
  
 	// Load datas
@@ -101,7 +98,7 @@ block_mul:
 	ADD X11, X11, X12
 	LD1 {V11.4s}, [X11]
 	
-	// Block multiply
+	// Block multiply, init with all 0
 	FMLA V8.4s, V4.4s, V0.4s[0]
 	FMLA V8.4s, V5.4s, V0.4s[1]
 	FMLA V8.4s, V6.4s, V0.4s[2]
