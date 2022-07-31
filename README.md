@@ -30,9 +30,6 @@ $> ./generate.sh
 [+] Test 3 succeed.
 [*] Final score is 30.
 ```
-
-![](./img/lab1.png)
-
 ## Lab-2
 
 - Assignment: [`lab2`](lab-2/ARMASM-lab2.pdf).
@@ -48,14 +45,12 @@ $> ./generate.sh
 
 ### Output
 
-```zsh
-# just an example
-
-```
+There is *something wrong* with the output, after debugging with gdb it turns out that *the FMLA instruction is not working* (and **I'm sure the rest of the whole program is fine**), I don't understand why this is happening... For specific questions, please refer to [my question on stackoverflow](https://stackoverflow.com/questions/73060389/the-fmul-instruction-of-the-neon-instruction-set-does-not-work).
 
 ## References
 
 - [ARM Assembly Basics](https://azeria-labs.com/writing-arm-assembly-part-1/)
 - [RUNNING ARM BINARIES ON X86 WITH QEMU-USER](https://azeria-labs.com/arm-on-x86-qemu-user/)
+- [Neon Programmer Guide for Armv8-A Coding for Neon: Matrix multiplication](https://developer.arm.com/documentation/102159/0400/Matrix-multiplication)
 - [DEBUGGING WITH GDB](https://azeria-labs.com/debugging-with-gdb-introduction/)
 - [How to set up an ARM64 playground on Ubuntu 18.04](https://offlinemark.com/2020/06/24/how-to-set-up-an-arm64-playground-on-ubuntu-18-04/)
